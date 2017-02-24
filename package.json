@@ -1,0 +1,23 @@
+{
+  "name": "iochat",
+  "version": "1.0.0",
+  "description": "Chat application using node.js, express-js and socket.io.",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "chat",
+    "socketio",
+    "nodejs"
+  ],
+  "author": "Wesley Lizarti",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.14.1",
+    "socket.io": "^1.7.3"
+  },
+  "devDependencies": {
+    "eslint": "^3.16.1"
+  }
+}

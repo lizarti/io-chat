@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>IO Chat</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css"
+          integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
+    
+    <link rel="stylesheet" href="assets/css/chat.css">
+</head>
+<body>
+  
+  <div class="container">
+
+    <div class="chat-room">
+      
+      <div class="left-menu">
+        <div class="">
+          <h3>Online users</h3>
+          <ul class="list-group contact-list" id="users">
+            <li class="contact">Cintea</li>
+          </ul>
+        </div>
+
+      </div>
+
+      <div class="chat">
+        <div class="chat-header">
+
+        </div>
+        <div id="messages" class="messages">
+          <div class="message">
+            <div class="message-info">
+              <span class="message-time">1 minute ago</span>
+              <span class="message-user">Wesley</span>
+            </div>
+            <div class="message-text">
+              Olá feioso
+            </div>
+          </div>
+        </div>
+        <div class="chat-footer">
+          
+          <form action="" id="messageform">
+            <div class="form-group">
+              <textarea class="messagefield" name="messagefield" id="messagefield" placeholder="Enter message..."></textarea>
+              <input type="submit" class="btn btn-primary" value="Send">
+            </div>
+          </form>
+
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js"
+        integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
+<script src="/socket.io/socket.io.js"></script>
+
+<script>
+  $(function () {
+    var socket = io.connect()
+    var messages = $("#messages")
+    var messageForm = $("#messageform")
+    var message = $("#messagefield")
+    
+    messageForm.on("submit", function (e) {
+      e.preventDefault()
+      socket.emit("send message", message.val())
+      message.val('')
+    })
+
+    socket.on('new message', function (data) {
+      messages.append('<div>' + data.message + '</div>')
+    })
+  })
+</script>   
+
+</body>
+</html>
