@@ -1,18 +1,25 @@
 {
-  "name": "iochat",
+  "name": "io-chat",
   "version": "1.0.0",
   "description": "Chat application using node.js, express-js and socket.io.",
   "main": "server.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node server.js"
   },
   "keywords": [
     "chat",
     "socketio",
     "nodejs"
   ],
-  "author": "Wesley Lizarti",
+  "author": {
+    "name": "Wesley Lizarti",
+    "email": "wesley.lizarti@gmail.com"
+  },
   "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/lizarti/io-chat"
+  },
   "dependencies": {
     "express": "^4.14.1",
     "socket.io": "^1.7.3"
