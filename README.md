@@ -2,7 +2,6 @@
 >Chat application using node.js, express-js and socket.io.
 
 ## Installation
----
 Make sure you have installed **Node** and **npm**.
 
 Once you cloned the repo, you'll need to install all the dependencies using npm.
